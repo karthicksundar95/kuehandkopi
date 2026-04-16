@@ -1,4 +1,4 @@
-backend
+# Do not list `backend/` here — experimentalServices needs it on the build machine.
 data
 **/__pycache__
 *.pyc

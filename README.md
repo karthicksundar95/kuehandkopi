@@ -54,13 +54,15 @@ Open `http://localhost:5173`. The Vite dev server proxies `/api` and `/health` t
 
 ### Deploy frontend on Vercel
 
-Vercel only builds the **static Vite app** from [`vercel.json`](vercel.json) (`frontend/dist`). Host the **FastAPI** API elsewhere (Render, Fly, Railway, etc.) — Python + SQLite does not map reliably to Vercel’s experimental multi-service backend.
+This repo has **two apps** (`frontend/` + `backend/`), so Vercel needs [`vercel.json`](vercel.json) with **`experimentalServices`**: Vite for `frontend/` (`framework` + `entrypoint`) and the Python API under `backend/` with route prefix `/_/backend`.
 
-1. Import the Git repo; keep **Root Directory** at the **repo root** (so `vercel.json` runs `cd frontend && …`).
-2. In Vercel → Settings → Environment Variables, set **`VITE_API_BASE`** to your API’s public base URL (no trailing slash), e.g. `https://your-api.onrender.com`.
-3. Deploy.
+1. Import the Git repo in Vercel (leave **Root Directory** as the repository root so `vercel.json` applies).
+2. Add **`VITE_API_BASE`** (no trailing slash) so the SPA can reach the API. For the same Vercel deployment with `/_/backend` routing, use your site origin plus the backend prefix, e.g. `https://your-project.vercel.app/_/backend`. If the API is hosted elsewhere, use that base URL instead.
+3. Deploy. The FastAPI backend must be hosted separately (Render, Fly, Railway, etc.); Vercel serves the static SPA only.
 
-**Alternative:** Set project **Root Directory** to `frontend`, use the Vite framework preset, and you can delete `vercel.json` if you prefer dashboard-only settings.
+**Alternative:** In the Vercel project settings, set **Root Directory** to `frontend` and use the default Vite preset; you can remove or simplify `vercel.json` in that case.
+
+**Note:** [`.vercelignore`](.vercelignore) must **not** exclude the `backend/` folder if you use `experimentalServices.backend`, or the API service has nothing to deploy.
 
 ### Production (single origin)
 
