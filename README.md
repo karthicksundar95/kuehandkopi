@@ -57,7 +57,7 @@ Open `http://localhost:5173`. The Vite dev server proxies `/api` and `/health` t
 This repo has **two apps** (`frontend/` + `backend/`), so Vercel needs an explicit build. The root [`vercel.json`](vercel.json) builds only the Vite app and publishes `frontend/dist`.
 
 1. Import the Git repo in Vercel (leave **Root Directory** as the repository root so `vercel.json` applies).
-2. Add an environment variable if the API is not on the same origin: **`VITE_API_BASE`** = your FastAPI base URL (no trailing slash), e.g. `https://your-api.onrender.com`.
+2. Add **`VITE_API_BASE`** (no trailing slash) so the SPA can reach the API. For the same Vercel deployment with `/_/backend` routing, use your site origin plus the backend prefix, e.g. `https://your-project.vercel.app/_/backend`. If the API is hosted elsewhere, use that base URL instead.
 3. Deploy. The FastAPI backend must be hosted separately (Render, Fly, Railway, etc.); Vercel serves the static SPA only.
 
 **Alternative:** In the Vercel project settings, set **Root Directory** to `frontend` and use the default Vite preset; you can remove or simplify `vercel.json` in that case.
