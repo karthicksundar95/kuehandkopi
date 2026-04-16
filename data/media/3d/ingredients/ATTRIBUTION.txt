@@ -1,0 +1,10 @@
+3D models (GLB) are from the Khronos glTF Sample Assets repository:
+https://github.com/KhronosGroup/glTF-Sample-Assets
+
+Files downloaded (CC0 / CC-BY as listed in each model’s README on that repo):
+- avocado.glb — Avocado (CC0)
+- water_bottle.glb — Water Bottle (CC0)
+- teacup.glb — Diffuse Transmission Teacup (CC0)
+- olives_dish.glb — Iridescent Dish with Olives (CC-BY 4.0 — check model page if attribution is required for your use case)
+
+Same files are copied to frontend/public/media/3d/ingredients/ for the Vite dev server.

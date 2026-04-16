@@ -1,0 +1,32 @@
+/* Brand colors aligned with logo: vibrant blue wordmark, bright orange accent, white */
+:root {
+  --site-header-h: 80px;
+  --color-brand-blue: #1a6fd4;
+  --color-brand-blue-dark: #0f4a8c;
+  --color-brand-orange: #ff7a2e;
+  --color-mango-gold: #f4b942;
+  --color-mango-coral: #ff8f6b;
+  --color-mango-cream: #fff4e6;
+  --color-bg: #fafcfe;
+  --color-bg-elevated: #ffffff;
+  --color-text: #0f3d73;
+  --color-text-muted: #4a6b8c;
+  --color-accent: var(--color-brand-orange);
+  --color-accent-soft: #ffb38a;
+  --color-leaf: var(--color-brand-blue);
+  --color-leaf-soft: #6ba8e8;
+  --color-border: rgba(26, 111, 212, 0.18);
+  --font-display: "DM Sans", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --shadow-soft: 0 24px 60px rgba(15, 61, 115, 0.1);
+  --campaign-page-bg: linear-gradient(
+    185deg,
+    #fafcfe 0%,
+    #fff9f3 38%,
+    #f5f9ff 72%,
+    #fafcfe 100%
+  );
+  --campaign-page-bg-size: 140% 140%;
+}

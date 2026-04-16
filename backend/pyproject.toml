@@ -1,0 +1,21 @@
+[project]
+name = "kuehandkopi-api"
+version = "0.1.0"
+description = "Kueh & Kopi campaign API"
+readme = "../README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "sqlalchemy>=2.0.36",
+  "pydantic-settings>=2.6.0",
+  "email-validator>=2.0.0",
+  "pyjwt[crypto]>=2.10.0",
+  "slowapi>=0.1.9",
+]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.28.0"]
+
+[tool.uv]
+package = false
