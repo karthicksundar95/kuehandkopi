@@ -65,13 +65,15 @@ function App() {
       >
         <div className="site-header-inner">
           <a href="/" className="brand">
-            <img
-              src={siteConfig.logoSrc}
-              width={200}
-              height={80}
-              alt={siteConfig.brandName}
-              className="brand-logo"
-            />
+            <span className="brand-logo-wrap">
+              <img
+                src={siteConfig.logoSrc}
+                width={200}
+                height={80}
+                alt={siteConfig.brandName}
+                className="brand-logo"
+              />
+            </span>
           </a>
           <nav className="nav" aria-label="Primary">
             <a href="#memory-game">Game</a>
