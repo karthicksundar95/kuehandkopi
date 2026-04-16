@@ -54,7 +54,7 @@ Open `http://localhost:5173`. The Vite dev server proxies `/api` and `/health` t
 
 ### Deploy frontend on Vercel
 
-This repo has **two apps** (`frontend/` + `backend/`), so Vercel needs an explicit build. The root [`vercel.json`](vercel.json) builds only the Vite app and publishes `frontend/dist`.
+This repo has **two apps** (`frontend/` + `backend/`), so Vercel needs [`vercel.json`](vercel.json) with **`experimentalServices`**: Vite for `frontend/` (`framework` + `entrypoint`) and the Python API under `backend/` with route prefix `/_/backend`.
 
 1. Import the Git repo in Vercel (leave **Root Directory** as the repository root so `vercel.json` applies).
 2. Add **`VITE_API_BASE`** (no trailing slash) so the SPA can reach the API. For the same Vercel deployment with `/_/backend` routing, use your site origin plus the backend prefix, e.g. `https://your-project.vercel.app/_/backend`. If the API is hosted elsewhere, use that base URL instead.
