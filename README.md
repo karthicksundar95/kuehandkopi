@@ -52,6 +52,16 @@ npm run dev
 
 Open `http://localhost:5173`. The Vite dev server proxies `/api` and `/health` to `http://127.0.0.1:8000` (see [`frontend/vite.config.ts`](frontend/vite.config.ts)).
 
+### Deploy frontend on Vercel
+
+This repo has **two apps** (`frontend/` + `backend/`), so Vercel needs an explicit build. The root [`vercel.json`](vercel.json) builds only the Vite app and publishes `frontend/dist`.
+
+1. Import the Git repo in Vercel (leave **Root Directory** as the repository root so `vercel.json` applies).
+2. Add an environment variable if the API is not on the same origin: **`VITE_API_BASE`** = your FastAPI base URL (no trailing slash), e.g. `https://your-api.onrender.com`.
+3. Deploy. The FastAPI backend must be hosted separately (Render, Fly, Railway, etc.); Vercel serves the static SPA only.
+
+**Alternative:** In the Vercel project settings, set **Root Directory** to `frontend` and use the default Vite preset; you can remove or simplify `vercel.json` in that case.
+
 ### Production (single origin)
 
 Build the frontend, then run Uvicorn from the repo root so `frontend/dist` exists next to `backend`:
